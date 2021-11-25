@@ -1,12 +1,12 @@
 const router = require('express').Router();
+const { route } = require('.');
 const { Blog, User, Comment } = require('../../models');
 
 router.get('/', (req, res) => {
-    Blog.findAll({
+    Comment.findAll({
         attributes: [
             'id',
-            'title',
-            'blog_post',
+            'comment',
             'created_at'
         ],
         include: [
@@ -15,8 +15,8 @@ router.get('/', (req, res) => {
                 attributes: ['username']
             },
             {
-                model: Comment,
-                attributes: [ 'id', 'comment', 'created_at', 'user_id', 'blog_id'],
+                model: Blog,
+                attributes: [ 'id', 'title', 'blog_post', 'created_at'],
                 include: [
                     {
                         model: User,
@@ -26,7 +26,7 @@ router.get('/', (req, res) => {
             }
         ]
     })
-        .then(dbBlogData => res.json(dbBlogData))
+        .then(dbCommentData => res.json(dbCommentData))
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
@@ -34,14 +34,13 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-    Blog.findOne({
+    Comment.findOne({
         where: {
             id: req.params.id
         },
         attributes: [
             'id',
-            'title',
-            'blog_post',
+            'comment',
             'created_at'
         ],
         include: [
@@ -50,8 +49,8 @@ router.get('/:id', (req, res) => {
                 attributes: ['username']
             },
             {
-                model: Comment,
-                attributes: [ 'id', 'comment', 'created_at', 'user_id', 'blog_id'],
+                model: Blog,
+                attributes: [ 'id', 'title', 'blog_post', 'created_at' ],
                 include: [
                     {
                         model: User,
@@ -61,13 +60,13 @@ router.get('/:id', (req, res) => {
             }
         ]
     })
-        .then(dbBlogData => {
-            if(!dbBlogData) {
-                res.status(404).json({ message: "No blog post found with this id." });
+        .then(dbCommentData => {
+            if (!dbCommentData) {
+                res.status(404).json({ message: "No comment found with this id." });
                 return;
             }
-            
-            res.json(dbBlogData);
+
+            res.json(dbCommentData);
         })
         .catch(err => {
             console.log(err);
@@ -76,12 +75,12 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    Blog.create({
-        title: req.body.title,
-        blog_post: req.body.blog_post,
-        user_id: req.body.user_id
+    Comment.create({
+        comment: req.body.comment,
+        user_id: req.body.user_id,
+        blog_id: req.body.blog_id
     })
-        .then(dbBlogData => res.json(dbBlogData))
+        .then(dbCommentData => res.json(dbCommentData))
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
@@ -89,24 +88,18 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-    Blog.update(
-        {
-            title: req.body.title,
-            blog_post: req.body.blog_post,
-        },
-        {
-            where: {
-                id: req.params.id
-            }
+    Comment.update(req.body, {
+        where: {
+            id: req.params.id
         }
-    )
-        .then(dbBlogData => {
-            if(!dbBlogData) {
-                res.status(404).json({ message: 'No blog post found with this id.'});
+    })
+        .then(dbCommentData => {
+            if (!dbCommentData) {
+                res.status(404).json({ message: "No comment found with this id." });
                 return;
             }
 
-            res.json(dbBlogData);
+            res.json(dbCommentData);
         })
         .catch(err => {
             console.log(err);
@@ -115,18 +108,18 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-    Blog.destroy({
+    Comment.destroy({
         where: {
             id: req.params.id
         }
     })
-        .then(dbBlogData => {
-            if(!dbBlogData) {
-                res.status(404).json({ message: "No blog post found with this id." });
+        .then(dbCommentData => {
+            if (!dbCommentData) {
+                res.status(404).json({ message: "No comment found with this id." });
                 return;
             }
 
-            res.json(dbBlogData);
+            res.json(dbCommentData);
         })
         .catch(err => {
             console.log(err);
