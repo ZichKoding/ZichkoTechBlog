@@ -1,0 +1,28 @@
+<article class="post">
+    <div class="title">
+        <h2>{{blog.title}}</h2>
+    </div>
+    <div class="content">
+        {{blog.blog_post}}
+    </div>
+    <div class="meta">
+        By {{blog.user.username}} on
+        {{blog.created_at}}
+        |
+        <div>{{blog.comments.length}} comment(s)</div>
+        =================================================================================
+    </div>
+    <div class="comments">
+        {{#each blog.comments as |comment|}}
+        <section class="comment">
+            <div class="meta">
+                {{comment.user.username}} on {{comment.created_at}}
+            </div>
+            <div class="text">
+                {{comment.comment}}
+            </div>
+        </section>
+        =================================================================================
+        {{/each}}
+    </div>
+</article>
