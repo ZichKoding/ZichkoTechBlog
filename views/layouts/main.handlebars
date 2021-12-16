@@ -15,9 +15,12 @@
                     <a href="/">Zichko Tech Blog</a>
                 </h1>
                 <nav>
+                    {{#if loggedIn}}
                     <a href="/dasboard">Dashboard</a>
-                    <a href="/login">Login</a>
-                    <a href="/signup">Signup</a>
+                    <button class="btn-no-style" id="logout">Logout</button>
+                    {{else}}
+                    <a href="/login">Login/Signup</a>
+                    {{/if}}
                 </nav>
             </header>
             <main>
@@ -28,5 +31,9 @@
             </footer>
         </div>
     </body>
+    <script src="/javascript/login.js"></script>
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
 
 </html>

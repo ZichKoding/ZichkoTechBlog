@@ -59,6 +59,38 @@ router.post('/', (req, res) => {
         });
 });
 
+router.post('/login', (req, res) => {
+    // expects to find email and password: {email: 'someemail@email.com', password: 'somepassword'}
+    // locate based off of email and if not found let user know
+    User.findOne({
+        where: {
+            email: req.body.email
+        }
+    }).then(dbUserData => {
+        if (!dbUserData) {
+            res.status(400).json({ message: 'No user with that email address!' });
+            return;
+        }
+
+        // validate password for the located email
+        const validPassword = dbUserData.checkPassword(req.body.password);
+
+        if (!validPassword) {
+            res.status(400).json({ message: 'Incorrect password!' });
+        }
+
+        // save login to session
+        req.session.save(() => {
+            // declare session variables
+            req.session.user_id = dbUserData.id;
+            req.session.username = dbUserData.username;
+            req.session.loggedIn = true;
+
+            res.json({ user: dbUserData, message: 'You are now logged in!'});
+        });
+    });
+});
+
 router.put('/:id', (req, res) => {
     User.update(req.body, {
         individualHooks: true,
