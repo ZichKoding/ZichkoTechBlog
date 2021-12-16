@@ -91,6 +91,17 @@ router.post('/login', (req, res) => {
     });
 });
 
+router.post('/logout', (req, res) => {
+    // check if user data is in sessions and if it is destroy session data
+    if (req.session.loggedIn) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+    } else {
+        res.status(404).end();
+    }
+})
+
 router.put('/:id', (req, res) => {
     User.update(req.body, {
         individualHooks: true,
