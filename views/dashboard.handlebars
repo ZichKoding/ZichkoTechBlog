@@ -18,16 +18,17 @@
     <h2>Your Blogs</h2>
     <ol>
         {{#each blogs as |blog|}}
-        <li>
+        <li id="a-blog">
             <article class="blog">
                 <div class="title">
                     <h1>{{title}}</h1>
                 </div>
                 <div class="meta">
                     by {{user.username}} on
-                    <br />
                     {{blog.created_at}}
                 </div>
+                <a href="/dashboard/edit/{{blog.id}}" class="edit-link">Edit Blog</a>
+                <button type="submit" class="delete-blog" id="{{blog.id}}">Delete Blog</button>
             </article>
         </li>
         {{/each}}
@@ -35,3 +36,4 @@
 </section>
 
 <script src="/javascript/add-blog.js"></script>
+<script src="/javascript/delete-blog.js"></script>

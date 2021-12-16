@@ -31,9 +31,10 @@
             </footer>
         </div>
     </body>
-    <script src="/javascript/login.js"></script>
     {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>
+    {{else}}
+    <script src="/javascript/login.js"></script>
     {{/if}}
 
 </html>
