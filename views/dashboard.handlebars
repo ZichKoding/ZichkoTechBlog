@@ -1,1 +1,35 @@
-<h1>YOU ARE NOW LOGGED IN!</h1>
+<section>
+    <h2>Create New Blog</h2>
+
+    <form class="new-post-form">
+        <div>
+            <label for="blog-title"> Enter a Blog Title</label>
+            <br />
+            <input type="text" id="blog-title" name="blog-title" />
+        </div>
+        <div>
+            <textarea class="blog-text" placeholder="Enter your blog contents here"></textarea>
+        </div>
+        <button type="submit" class="btn">Submit</button>
+    </form>
+</section>
+
+<section>
+    <h2>Your Blogs</h2>
+    <ol>
+        {{#each blogs as |blog|}}
+        <li>
+            <article class="blog">
+                <div class="title">
+                    {{blog_title}}
+                </div>
+                <div class="meta">
+                    by {{user.username}} on
+                    <br />
+                    {{blog.created_at}}
+                </div>
+            </article>
+        </li>
+        {{/each}}
+    </ol>
+</section>
