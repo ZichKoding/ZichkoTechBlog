@@ -1,0 +1,18 @@
+<article>
+    <a href="/dashboard"> &ShortLeftArrow; Back to dashboard</a>
+    <h2>
+        Edit Blog
+    </h2>
+    <form class="edit-blog-form">
+        <div>
+            <input type="text" name="blog-title" value="{{blog.title}}" />
+        </div>
+        <div>
+            <textarea id="blog-text" placeholder="Enter your blog contents here">{{blog.blog_post}}</textarea>
+        </div>
+        <button type="submit">Save Blog</button>
+    </form>
+</article>
+
+
+<script src="/javascript/edit-blog.js"></script>

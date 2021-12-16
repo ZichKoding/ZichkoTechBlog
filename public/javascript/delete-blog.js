@@ -16,7 +16,6 @@ async function deleteFormHandler(event) {
     } else {
         alert(response.statusText);
     }
-
 };
 
-document.querySelector('#a-blog').addEventListener('click', deleteFormHandler);
+document.querySelector('.delete-blog').addEventListener('click', deleteFormHandler);

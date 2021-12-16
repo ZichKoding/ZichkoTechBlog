@@ -20,7 +20,7 @@ Blog.init(
             }
         },
         blog_post: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
             validate: {
                 len: [1]

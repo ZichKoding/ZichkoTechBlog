@@ -39,8 +39,7 @@ async function loginFormHandler(event) {
 
     const email = document.querySelector('#email-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
-    console.log(email);
-    console.log(password);
+
 
     // if email and password inputs have value move onto making a fetch to validate the user
     if (email && password) {
