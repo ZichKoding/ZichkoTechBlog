@@ -30,7 +30,9 @@ router.get('/', (req, res) => {
         .then(dbBlogData => {
             const blogs = dbBlogData.map(blog => blog.get({ plain: true }));
             res.render('homepage', {
-                blogs
+                blogs,
+                // add a feature to check if a user is loggedIn and display certain data if they are or not
+                loggedIn: req.session.loggedIn
             });
         })
         .catch(err => {
