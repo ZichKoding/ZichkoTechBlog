@@ -1,14 +1,14 @@
 <section>
     <h2>Create New Blog</h2>
 
-    <form class="new-post-form">
+    <form class="new-blog-form">
         <div>
             <label for="blog-title"> Enter a Blog Title</label>
             <br />
             <input type="text" id="blog-title" name="blog-title" />
         </div>
         <div>
-            <textarea class="blog-text" placeholder="Enter your blog contents here"></textarea>
+            <textarea id="blog-text" placeholder="Enter your blog contents here"></textarea>
         </div>
         <button type="submit" class="btn">Submit</button>
     </form>
@@ -21,7 +21,7 @@
         <li>
             <article class="blog">
                 <div class="title">
-                    {{blog_title}}
+                    <h1>{{title}}</h1>
                 </div>
                 <div class="meta">
                     by {{user.username}} on
@@ -33,3 +33,5 @@
         {{/each}}
     </ol>
 </section>
+
+<script src="/javascript/add-blog.js"></script>
