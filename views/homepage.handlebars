@@ -5,14 +5,14 @@
             <div class="title">
                 <h2>{{blog.title}}</h2>
             </div>
-            <div class="content">
-                {{blog.blog_post}}
-            </div>
             <div class="meta">
                 By {{blog.user.username}} on
                 {{blog.created_at}}
                 |
                 <a href="/post/{{blog.id}}">{{blog.comment.length}} comment(s)</a>
+            </div>
+            <div class="content">
+                {{blog.blog_post}}
             </div>
         </article>
     </li>
