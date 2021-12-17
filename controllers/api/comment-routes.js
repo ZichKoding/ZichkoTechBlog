@@ -5,7 +5,7 @@ router.get('/', (req, res) => {
     Comment.findAll({
         attributes: [
             'id',
-            'comment',
+            'comment_text',
             'created_at'
         ],
         include: [
@@ -39,7 +39,7 @@ router.get('/:id', (req, res) => {
         },
         attributes: [
             'id',
-            'comment',
+            'comment_text',
             'created_at'
         ],
         include: [
@@ -75,8 +75,9 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     Comment.create({
-        comment: req.body.comment,
-        user_id: req.body.user_id,
+        comment_text: req.body.comment_text,
+        // use the id from the session 
+        user_id: req.session.user_id,
         blog_id: req.body.blog_id
     })
         .then(dbCommentData => res.json(dbCommentData))

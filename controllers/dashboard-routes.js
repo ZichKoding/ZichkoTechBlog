@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
             // add any comments related to the blog
             {
                 model: Comment,
-                attributes: [ 'id', 'comment', 'created_at', 'user_id', 'blog_id' ],
+                attributes: [ 'id', 'comment_text', 'created_at', 'user_id', 'blog_id' ],
                 include: [
                     {
                         model: User,
@@ -65,7 +65,7 @@ router.get('/edit/:id', (req, res) => {
             // add any comments related to the blog
             {
                 model: Comment,
-                attributes: [ 'id', 'comment', 'created_at', 'user_id', 'blog_id' ],
+                attributes: [ 'id', 'comment_text', 'created_at', 'user_id', 'blog_id' ],
                 include: [
                     {
                         model: User,
