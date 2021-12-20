@@ -1,31 +1,37 @@
-<article class="post">
-    <div class="title">
-        <h2>{{blog.title}}</h2>
-    </div>
-    <div class="meta">
-        By {{blog.user.username}} on
-        {{blog.created_at}}
-        |
-        {{blog.comment.length}} comment(s)
-    </div>
-    <div class="content">
-        {{blog.blog_post}}
-    </div>
-</article>
-{{#if loggedIn}}
-<form class="comment-form">
-    <div>
-        <textarea name="comment-body" placeholder="Enter a comment"></textarea>
-    </div>
+<div class="container">    
+    <div class="row">
+        <div class="col-lg-8">
+            <article class="post">
+                <div class="title">
+                    <h2>{{blog.title}}</h2>
+                </div>
+                <div class="meta">
+                    By {{blog.user.username}} on
+                    {{blog.created_at}}
+                    |
+                    {{blog.comment.length}} comment(s)
+                </div>
+                <div class="content">
+                    {{blog.blog_post}}
+                </div>
+            </article>
+            {{#if loggedIn}}
+            <form class="comment-form">
+                <div>
+                    <textarea name="comment-body" placeholder="Enter a comment" id="comment-text"></textarea>
+                </div>
 
-    <div>
-        <button type="submit">Add Comment</button>
+                <div>
+                    <button type="submit" class="btn">Add Comment</button>
+                </div>
+            </form>
+            {{/if}}
+        </div>
+        <div class="col-lg-4">
+        {{> comments blog.comments}}
+        </div>
     </div>
-</form>
-{{/if}}
-
-{{> comments blog.comments}}
-
+</div>
 {{#if loggedIn}}
 <script src="/javascript/comment.js"></script>
 {{/if}}
