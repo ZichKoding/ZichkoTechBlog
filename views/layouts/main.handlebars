@@ -13,15 +13,14 @@
         <header>
             <div class="contiainer">
                 <div class="row">
-                    <div class="col-1"></div>
-                    <h1 class="col-7 title">
+                    <h1 class="col-6 title">
                         <a href="/" class="h-links">Zichko Tech Blog</a>
                     </h1>
-                    <nav class="col-4">
+                    <nav class="col-6">
                         <div>
                             {{#if loggedIn}}
                             <a href="/dashboard" class="h-links nav-links">Dashboard</a>
-                            <button class="h-links nav-links" id="logout">Logout</button>
+                            <button class="h-links nav-links logout-btn" id="logout">Logout</button>
                             {{else}}
                             <a href="/login" class="h-links nav-links">Login/Signup</a>
                             {{/if}}

@@ -12,6 +12,10 @@ header {
     margin-bottom: 1rem;
 }
 
+nav {
+    text-align: right;
+}
+
 .row {
     margin: 0;
     padding: 0;
@@ -30,8 +34,64 @@ header {
     font-size: 1.6rem;
 }
 
+.logout-btn {
+    text-decoration: none;
+    background-color: rgb(26, 29, 36);
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.3rem white;
+    width: 5rem;
+}
+
+.logout-btn:hover {
+    background-color: rgb(40, 44, 54);
+    box-shadow: 0 0 0.3rem white;
+}
+
+/* Login/Signup CSS */
+.login-form, .signup-form {
+    padding: 10rem;
+}
+
+.div-sep {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+
 .login-input {
     border-radius: 0.5rem;
     color: black;
-    width: 10rem;
+    width: 14rem;
+    height: 2.3rem;
+}
+
+.sub-btn {
+    text-decoration: none;
+    background-color: rgb(26, 29, 36);
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.3rem white;
+    width: 15rem;
+    height: 2.3rem;
+    margin-top: 1rem;
+}
+
+
+@media screen and (max-width: 575px) {
+    /* Login/Signup CSS */
+    .login-input {
+        border-radius: 0.5rem;
+        color: black;
+        width: 14rem;
+    }
+
+    .signup-form {
+        text-align: left;
+    }
+
+    .login-form, .signup-form {
+        padding: 2rem;
+        margin: 1rem;
+    }
 }
