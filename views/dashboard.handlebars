@@ -1,41 +1,45 @@
-<section>
-    <h2>Create New Blog</h2>
+<div class="container">
+    <div class="row">
+        <section class="col-lg-9 blog-creation">
+            <h2>Create New Blog</h2>
 
-    <form class="new-blog-form">
-        <div>
-            <label for="blog-title"> Enter a Blog Title</label>
-            <br />
-            <input type="text" id="blog-title" name="blog-title" />
-        </div>
-        <div>
-            <textarea id="blog-text" placeholder="Enter your blog contents here"></textarea>
-        </div>
-        <button type="submit" class="btn">Submit</button>
-    </form>
-</section>
+            <form class="new-blog-form">
+                <div>
+                    <label for="blog-title" class="blog-title"> Enter a Blog Title</label>
+                    <br />
+                    <input type="text" id="blog-title" name="blog-title" />
+                </div>
+                <div>
+                    <textarea id="blog-text" placeholder="Enter your blog contents here"></textarea>
+                </div>
+                <button type="submit" class="btn sub-btn">Submit</button>
+            </form>
+        </section>
 
-<section>
-    <h2>Your Blogs</h2>
-    <ol>
-        {{#each blogs as |blog|}}
-        <li id="a-blog">
-            <article class="blog">
-                <div class="title">
-                    <h1>{{title}}</h1>
-                </div>
-                <div class="meta">
-                    by {{user.username}} on
-                    {{blog.created_at}}
-                </div>
-                <a href="/dashboard/edit/{{blog.id}}" class="edit-link">Edit Blog</a>
-                <br />
-                <br />
-                <button type="submit" class="delete-blog" id="{{blog.id}}">Delete Blog</button>
-            </article>
-        </li>
-        {{/each}}
-    </ol>
-</section>
+        <section class="col-lg-3">
+            <h4>Your Blogs</h4>
+            <ol>
+                {{#each blogs as |blog|}}
+                <li id="a-blog">
+                    <article class="blog">
+                        <div class="title">
+                            <h3>{{title}}</h3>
+                        </div>
+                        <div class="meta">
+                            by {{user.username}} on
+                            {{blog.created_at}}
+                        </div>
+                        <a href="/dashboard/edit/{{blog.id}}" class="edit-link">Edit Blog</a>
+                        <br />
+                        <br />
+                        <button type="submit" class="delete-blog del-btn" id="{{blog.id}}">Delete Blog</button>
+                    </article>
+                </li>
+                {{/each}}
+            </ol>
+        </section>
+    </div>
+</div>
 
 <script src="/javascript/add-blog.js"></script>
 <script src="/javascript/delete-blog.js"></script>

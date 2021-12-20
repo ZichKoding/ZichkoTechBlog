@@ -77,6 +77,64 @@ nav {
     margin-top: 1rem;
 }
 
+/* dashboard CSS */
+.blog-creation {
+    text-align: center;
+}
+
+.new-blog-form {
+    text-align: left;
+}
+
+.blog-title {
+    font-size: 1.5rem;
+}
+
+#blog-title {
+    color: black;
+    background-color: slategrey;
+    font-size: 1.7rem;
+    font-weight: bold;
+    width: 20rem;
+    height: 3rem;
+    margin: 1rem 0;
+    border-radius: 1.3rem;
+    box-shadow: 0 0 0.3rem black;
+}
+
+#blog-text {
+    color: black;
+    background-color: slategrey;
+    font-size: 1.3rem;
+    width: 50rem;
+    height: 30rem;
+    border-radius: 0.7rem;
+    box-shadow: 0 0 0.5rem black;
+    border: none;
+}
+
+.btn {
+    color: whitesmoke;
+    text-decoration: none;
+    background-color: rgb(26, 29, 36);
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.3rem black;
+    width: 19rem;
+    height: 2.3rem;
+    margin: 1rem 0;
+}
+
+.del-btn {
+    color: whitesmoke;
+    text-decoration: none;
+    background-color: rgb(26, 29, 36);
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.3rem black;
+    width: 16rem;
+    height: 2.3rem;
+}
 
 @media screen and (max-width: 575px) {
     /* Login/Signup CSS */
@@ -94,4 +152,16 @@ nav {
         padding: 2rem;
         margin: 1rem;
     }
+
+    /* dashboard CSS */
+    #blog-title {
+        width: 20rem;
+        height: 3rem;
+        margin: 1rem 0;
+    }
+    #blog-text {
+        width: 20rem;
+        height: 20rem;
+    }
+    
 }
