@@ -1,21 +1,27 @@
-<ol>
-    {{#each blogs as |blog|}}
-    <li>
-        <article class="post">
-            <div class="title">
-                <h2>{{blog.title}}</h2>
-            </div>
-            <div class="meta">
-                By {{blog.user.username}} on
-                {{blog.created_at}}
-                |
-                {{blog.comment.length}} comment(s)
-            </div>
-            <div class="content">
-                {{blog.blog_post}}
-            </div>
-            <a href="/blog/{{blog.id}}">Comment</a>
-        </article>
-    </li>
-    {{/each}}
-</ol>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <ol class="col-lg-8">
+            {{#each blogs as |blog|}}
+            <li>
+                <article class="post">
+                    <div class="title">
+                        <h2>{{blog.title}}</h2>
+                    </div>
+                    <div class="meta">
+                        By {{blog.user.username}} on
+                        {{blog.created_at}}
+                        |
+                        {{blog.comment.length}} comment(s)
+                    </div>
+                    <div class="content">
+                        {{blog.blog_post}}
+                    </div>
+                    <a href="/blog/{{blog.id}}">Comment</a>
+                </article>
+            </li>
+            {{/each}}
+        </ol>
+        <div class="col-lg-2"></div>
+    </div>
+</div>
