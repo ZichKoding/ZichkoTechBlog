@@ -1,16 +1,16 @@
-<article>
+<article class="edit-blog">
     <a href="/dashboard"> &ShortLeftArrow; Back to dashboard</a>
     <h2>
         Edit Blog
     </h2>
     <form class="edit-blog-form">
         <div>
-            <input type="text" name="blog-title" value="{{blog.title}}" />
+            <input type="text" name="blog-title" id="blog-title" value="{{blog.title}}" />
         </div>
         <div>
             <textarea id="blog-text" placeholder="Enter your blog contents here">{{blog.blog_post}}</textarea>
         </div>
-        <button type="submit">Save Blog</button>
+        <button type="submit" class="btn">Save Blog</button>
     </form>
 </article>
 
