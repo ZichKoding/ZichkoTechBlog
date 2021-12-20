@@ -1,0 +1,37 @@
+* {
+    padding: 0;
+    margin: 0;
+    color: whitesmoke
+}
+body {
+    background-color: rgb(35, 34, 37);
+}
+header {
+    background-color: rgb(26, 29, 36);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.row {
+    margin: 0;
+    padding: 0;
+}
+
+.h-links {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.nav-links {
+    font-size: 1.2rem;
+}
+
+.title {
+    font-size: 1.6rem;
+}
+
+.login-input {
+    border-radius: 0.5rem;
+    color: black;
+    width: 10rem;
+}
