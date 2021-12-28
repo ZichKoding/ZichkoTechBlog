@@ -11,9 +11,9 @@
                     |
                     {{blog.comment.length}} comment(s)
                 </div>
-                <div class="content">
+                <textarea class="content" readonly>
                     {{blog.blog_post}}
-                </div>
+                </textarea>
             </article>
             {{#if loggedIn}}
             <form class="comment-form">

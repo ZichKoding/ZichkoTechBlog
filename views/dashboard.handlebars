@@ -1,4 +1,5 @@
 <div class="container">
+    <h1>Welcome</h1>
     <div class="row">
         <section class="col-lg-9 blog-creation">
             <h2>Create New Blog</h2>
@@ -20,7 +21,7 @@
             <h4>Your Blogs</h4>
             <ol>
                 {{#each blogs as |blog|}}
-                <li id="a-blog">
+                <li id="{{blog.id}}">
                     <article class="blog">
                         <div class="title">
                             <h3>{{title}}</h3>
@@ -32,7 +33,6 @@
                         <a href="/dashboard/edit/{{blog.id}}" class="edit-link">Edit Blog</a>
                         <br />
                         <br />
-                        <button type="submit" class="delete-blog del-btn" id="{{blog.id}}">Delete Blog</button>
                     </article>
                 </li>
                 {{/each}}
@@ -42,4 +42,3 @@
 </div>
 
 <script src="/javascript/add-blog.js"></script>
-<script src="/javascript/delete-blog.js"></script>

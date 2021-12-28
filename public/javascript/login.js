@@ -1,4 +1,3 @@
-
 // Create signupFormHandler to post the new user to the server's database
 async function signupFormHandler(event) {
     event.preventDefault();
