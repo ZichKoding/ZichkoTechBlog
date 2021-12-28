@@ -45,6 +45,32 @@ router.get('/', (req, res) => {
         });
 });
 
+// // pulling infromation to load user's username into the dashboard
+// router.get('/', (req, res) => {
+//     User.findOne({
+//         where: {
+//             id: req.session.user_id
+//         },
+//         attributes: [ 'username' ]
+//     })
+//         .then(dbUserData => {
+//             if(!dbUserData) {
+//                 res.status(404).json({ message: "No user found" });
+//                 return;
+//             }
+
+//             const user = dbUserData.get({ plain: true });
+//             console.table(user);
+//             res.render('dashboard', { user, loggedIn: req.session.loggedIn });
+//         })
+//         .catch(err => {
+//             console.log(err);
+//             res.status(500).json(err);
+//         });
+// });
+
+
+// pulling information for editting a blog.
 router.get('/edit/:id', (req, res) => {
     Blog.findOne({
         where: {

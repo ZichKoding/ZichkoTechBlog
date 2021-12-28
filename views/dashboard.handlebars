@@ -1,5 +1,8 @@
 <div class="container">
-    <h1>Welcome</h1>
+    {{#with blogs as |blog|}}
+        <h1>Welcome {{user.username}}</h1>
+        {{log username}}
+    {{/with}}
     <div class="row">
         <section class="col-lg-9 blog-creation">
             <h2>Create New Blog</h2>
